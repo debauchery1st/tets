@@ -99,7 +99,8 @@ func stanley_newbrick(b):
 		# instance has previously been freed
 		pass
 	else:
-		get_node('.').remove_child(b)
+		# https://github.com/godotengine/godot/issues/7507
+		# get_node('.').remove_child(b)
 		b.queue_free()
 	global.new_piece()
 
@@ -113,7 +114,8 @@ func rebrick():
 			# instance has previously been freed
 			pass
 		else:
-			get_node('.').remove_child(oldbrick)
+			# https://github.com/godotengine/godot/issues/7507
+			# get_node('.').remove_child(oldbrick)
 			oldbrick.queue_free()
 	for y in range(0, limit):
 		for x in range(len(GRID[0])):
