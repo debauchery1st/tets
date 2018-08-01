@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const ACCELERATION = 512
+const ACCELERATION = 128
 const MAX_SPEED = 200
 const GRAVITY = 32
 const UP = Vector2(0, -1)
@@ -108,9 +108,6 @@ func m5offset():
 		vv = Vector2(x-1, y-1)
 		m5[vv.y][vv.x] = 1
 		m5_piece[a] = vv
-	#for row in m5:
-	#	print(row)
-	#print(' ')
 	return [o_dict, m5_piece]
 
 func rotated_pieces():
@@ -143,6 +140,10 @@ func _physics_process(delta):
 	var motion = Vector2(0, 0)
 	if global.GAME_OVER:
 		return
+	if 1 in global.GRID[0]:
+		print("GAME OVER")
+		global.GAME_OVER = true
+		return
 	if global.CURRENT[0] != self:
 		if is_on_floor():
 			return
@@ -165,7 +166,7 @@ func _physics_process(delta):
 		motion.x += max(pos.x-ACCELERATION, -MAX_SPEED)
 	if Input.is_action_pressed("ui_down"):
 		pass
-		# motion.y += GRAVITY
+		motion.y += GRAVITY
 	if Input.is_action_just_pressed("ui_up"):
 		pass
 	if Input.is_action_just_pressed("ui_accept"):
@@ -175,6 +176,7 @@ func _physics_process(delta):
 			global.FX_PLAYERS['fx1'].play()
 	pos.x = lerp(motion.x + pos.x, 0, 0.25)
 	pos.y = lerp(motion.y + pos.y, 0, 0.25)
+	pos = round_up(pos)  # move by integer to help with 2D to 1D projection
 	pos = move_and_slide(pos, UP)
 	if is_on_ceiling():
 		var last_collider = get_slide_collision(0).collider
@@ -182,14 +184,13 @@ func _physics_process(delta):
 			print("BLAZE ONE UP")
 			global.GAME_OVER = true
 		else:
-			COLLISION_DELTA += delta
+			COLLISION_DELTA += .1
 			print(COLLISION_DELTA)
-			if COLLISION_DELTA-delta < 5*delta:
+			if COLLISION_DELTA-delta < .5:
 				print("NICE!")
 			else:
 				print("BLAZE ONE UP!!!")
 				global.GAME_OVER = true
-	pos.x = ((int(pos.x) % 256)/64)*64
 	if is_on_floor() and not global.GAME_OVER:
 		if dftc_procs == 0:
 			down_for_the_count()
@@ -201,6 +202,18 @@ func _physics_process(delta):
 	else:
 		if not global.GAME_OVER:
 			COLLISION_DELTA = 0
+
+func round_up(xy):
+	var x1 = xy.x
+	var x2 = int(xy.x)
+	var y1 = xy.y
+	var y2 = int(xy.y)
+	if (x1 - x2) > .49:
+		xy.x = x1 + 1
+	if (y1 - y2) > .49:
+		xy.y = y1 + 1
+	return xy
+
 
 func down_for_the_count():
 	if dftc_procs > 0:
