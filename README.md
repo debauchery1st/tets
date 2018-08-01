@@ -1,7 +1,7 @@
-# Tets
+# [Tets](http://github.com/debauchery1st/tets)
 
-written for the Godot Engine.
+written for the [Godot Engine](http://godotengine.org/)
 
 ##### Python versions
-1. [pygame](http://github.com/debauchery1st/machinewerkz "PyGame")
-2. [kivy](http://github.com/debauchery1st/machinewerkz "Kivy")
+1. [PyGame](http://github.com/debauchery1st/machinewerkz "PyGame")
+2. [Kivy](http://github.com/debauchery1st/machinewerkz "Kivy")
