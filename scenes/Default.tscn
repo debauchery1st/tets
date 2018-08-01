@@ -87,7 +87,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 319.672, 8.05591 )
 
-[node name="Default" type="Node2D" index="0"]
+[node name="Default" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -148,7 +148,7 @@ position = Vector2( 134.151, -619.342 )
 scale = Vector2( 0.218131, 0.464129 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 17
+frame = 23
 playing = true
 flip_h = true
 __meta__ = {
