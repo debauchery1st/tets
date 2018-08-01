@@ -1,0 +1,273 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/PuzzlePiece.gd" type="Script" id=1]
+[ext_resource path="res://images/mw64-0.png" type="Texture" id=2]
+[ext_resource path="res://fonts/PlayfairDisplay-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 16.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 32.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 32.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 32.0
+height = 0.0
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 24
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+position = Vector2( 96, 32 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="H" type="Sprite" parent="." index="0" groups=[
+"H",
+]]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 133, 200, 64, 64 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="H_C" type="CollisionShape2D" parent="." index="1" groups=[
+"H",
+]]
+
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="H_T" type="RichTextLabel" parent="." index="2" groups=[
+"H",
+]]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "H"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="I" type="Sprite" parent="." index="3" groups=[
+"I",
+]]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 133, 200, 64, 64 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="I_C" type="CollisionShape2D" parent="." index="4" groups=[
+"I",
+]]
+
+shape = SubResource( 2 )
+
+[node name="I_T" type="RichTextLabel" parent="." index="5" groups=[
+"I",
+]]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "I"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="J" type="Sprite" parent="." index="6" groups=[
+"J",
+]]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 133, 200, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="J_C" type="CollisionShape2D" parent="." index="7" groups=[
+"J",
+]]
+
+shape = SubResource( 3 )
+
+[node name="J_T" type="RichTextLabel" parent="." index="8" groups=[
+"J",
+]]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "J"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="K" type="Sprite" parent="." index="9" groups=[
+"K",
+]]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 133, 200, 64, 64 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="K_C" type="CollisionShape2D" parent="." index="10" groups=[
+"K",
+]]
+
+shape = SubResource( 4 )
+
+[node name="K_T" type="RichTextLabel" parent="." index="11" groups=[
+"K",
+]]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 31.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "K"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="12"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 448.0
+margin_top = 32.0
+margin_right = 640.0
+margin_bottom = 96.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "score"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+

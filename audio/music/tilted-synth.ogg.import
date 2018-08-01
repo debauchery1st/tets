@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tilted-synth.ogg-056ab090d206a94c8a7e14b0f6b7d53a.oggstr"
+
+[deps]
+
+source_file="res://audio/music/tilted-synth.ogg"
+dest_files=[ "res://.import/tilted-synth.ogg-056ab090d206a94c8a7e14b0f6b7d53a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

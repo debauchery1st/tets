@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/synth-wave.ogg-27d1aceccfba6a982869e4a320eae2d6.oggstr"
+
+[deps]
+
+source_file="res://audio/music/synth-wave.ogg"
+dest_files=[ "res://.import/synth-wave.ogg-27d1aceccfba6a982869e4a320eae2d6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
