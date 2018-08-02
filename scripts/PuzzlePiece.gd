@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const ACCELERATION = 128
-const MAX_SPEED = 200
+const MAX_SPEED = 256
 const GRAVITY = 32
 const UP = Vector2(0, -1)
 const R_RADIANS = 1.570796  # print(deg2rad(90))
@@ -96,7 +96,6 @@ func m5offset():
 	# transpose the shape onto 5x5 matrix (m5)
 	var o_dict = {}
 	var v_dict = {}
-	var vv = Vector2()
 	for a in adjustments:
 		v_dict[a] = adjustments[a]
 		if radians > 0:
@@ -105,9 +104,9 @@ func m5offset():
 		v_dict[a] += Vector2(192, 192)
 		var x = int(v_dict[a].x / 64)
 		var y = int(v_dict[a].y / 64)
-		vv = Vector2(x-1, y-1)
-		m5[vv.y][vv.x] = 1
-		m5_piece[a] = vv
+		var nw = Vector2(-1, -1) + Vector2(int(x), int(y))
+		m5[nw.y][nw.x] = 1
+		m5_piece[a] = nw
 	return [o_dict, m5_piece]
 
 func rotated_pieces():
@@ -208,12 +207,11 @@ func round_up(xy):
 	var x2 = int(xy.x)
 	var y1 = xy.y
 	var y2 = int(xy.y)
-	if (x1 - x2) > .49:
+	if (x1 - x2) > .5:
 		xy.x = x1 + 1
-	if (y1 - y2) > .49:
+	if (y1 - y2) > .5:
 		xy.y = y1 + 1
 	return xy
-
 
 func down_for_the_count():
 	if dftc_procs > 0:

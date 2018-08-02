@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://scripts/Default.gd" type="Script" id=1]
 [ext_resource path="res://images/steampunk-bkg.png" type="Texture" id=2]
@@ -72,6 +72,9 @@
 [ext_resource path="res://images/fog/1178_677_FOG067.png" type="Texture" id=70]
 [ext_resource path="res://images/fog/1178_677_FOG068.png" type="Texture" id=71]
 [ext_resource path="res://images/fog/1178_677_FOG069.png" type="Texture" id=72]
+[ext_resource path="res://scripts/pause_tets.gd" type="Script" id=73]
+[ext_resource path="res://fonts/PlayfairDisplay-Bold.ttf" type="DynamicFontData" id=74]
+
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -87,12 +90,30 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 319.672, 8.05591 )
 
+[sub_resource type="DynamicFont" id=3]
+
+size = 64
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 74 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 32
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 74 )
+_sections_unfolded = [ "Font", "Settings" ]
+
 [node name="Default" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
 
 [node name="ParallaxLayer" type="ParallaxBackground" parent="." index="0"]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -150,7 +171,7 @@ position = Vector2( 134.151, -619.342 )
 scale = Vector2( 0.218131, 0.464129 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 51
+frame = 14
 playing = true
 flip_h = true
 __meta__ = {
@@ -219,7 +240,7 @@ shape = SubResource( 2 )
 ]]
 
 editor/display_folded = true
-position = Vector2( 683.086, 397.517 )
+position = Vector2( 683.749, 397.517 )
 rotation = 1.5708
 scale = Vector2( 20.1711, 2.08773 )
 input_pickable = false
@@ -266,5 +287,83 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="pause_tets" type="Popup" parent="." index="8"]
+
+pause_mode = 2
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 73 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="pause_label" type="RichTextLabel" parent="pause_tets" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 270.0
+margin_right = 640.0
+margin_bottom = 530.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]PAUSED[/center]"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "PAUSED"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "custom_fonts" ]
+
+[node name="resume_tets" type="Button" parent="pause_tets" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 110.0
+margin_top = 530.0
+margin_right = 530.0
+margin_bottom = 640.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "resume"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="pressed" from="pause_tets/resume_tets" to="pause_tets" method="_on_resume_tets_pressed"]
 
 

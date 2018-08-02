@@ -3,6 +3,7 @@ extends Node
 var BLOCK = preload("res://scenes/PuzzlePiece.tscn")
 var BRICK = preload("res://scenes/Brick.tscn")
 
+var GAME_PAUSED = false
 var GAME_OVER = false
 var COLS = 10
 var SU = OS.get_window_size().x/COLS
@@ -60,8 +61,6 @@ func new_piece():
 	if len(CURRENT) > 0:
 		PIECES.append(CURRENT.pop_back())
 	var sh = get_random_number(7)
-	# var sh = 5
-	# var sh = 0
 	CURRENT = add_spawn(spawn_block(0, 0, 0, sh), sh)
 
 func as_dictionary(s):
